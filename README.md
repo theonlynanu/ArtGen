@@ -19,3 +19,5 @@ I apologize for the frequencies of the commits - as this is meant to be a portfo
 - Create better blending for color gradient
 - Experiment with different shapes (arcs, polygons, ellipses)
 - Include coolors.co compatibility to generate pleasing palettes for the shape
+- Introduce naming function using OpenAI
+- Expand overlay feature to generate more complex avatars (similar to CryptoPunks?)
