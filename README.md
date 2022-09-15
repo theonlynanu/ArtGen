@@ -7,7 +7,7 @@ I apologize for the frequencies of the commits - as this is meant to be a portfo
 - Pillow
 
 ## USAGE:
-# Variables
+### Variables
 - **target_size_px** (line 29): adjusts the overall size of the final canvas, in pixels
 - **scale** (line 30): changes the scale at which the image is rendered before downsampling for anti-aliasing of final image
 - **padding_pct** (line 31): adjusts the margin as a percentage of the total canvas size
