@@ -1,6 +1,7 @@
 # Test Images
-test-image.png
-
+*.png
+Images/*.png
+!Images/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
