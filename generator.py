@@ -26,9 +26,11 @@ def color_interpolation(start, end, factor:float):
 
 def generate_art(path: str):    
     # Generate base image
-    image_size_px = 512
+    target_size_px = 512
+    scale = 4
     padding_pct = 0.2
     line_count = 10
+    image_size_px = target_size_px * scale
     image_bg_color = (0, 0, 0)
     start_color = random_color()
     end_color = random_color()
@@ -92,10 +94,11 @@ def generate_art(path: str):
         line_xy = (start, end)
         color_factor = i / point_count
         line_color = color_interpolation(start_color, end_color, color_factor)
-        line_thickness += 2
+        line_thickness += scale
         overlay_draw.line(line_xy, fill = line_color, width = line_thickness)
         image = ImageChops.add(image, overlay_image)
-        
+    
+    image = image.resize((target_size_px, target_size_px), resample = Image.ANTIALIAS)    
     image.save(path)
     print("Done!")
 
