@@ -15,7 +15,7 @@ I apologize for the frequencies of the commits - as this is meant to be a portfo
 - **line_thickness** (line 77): adjusts integer weight of first line; will need to be adjusted as canvas size is changed
 - **instance_count** (line 105): adjusts the number of images generated in the Images folder
 
-### TO-DO
+## TO-DO
 - Create better blending for color gradient
 - Experiment with different shapes (arcs, polygons, ellipses)
 - Include coolors.co compatibility to generate pleasing palettes for the shape
