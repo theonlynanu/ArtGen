@@ -40,6 +40,27 @@ def generate_art():
             random.randint(int(padding_pct * image_size_px), image_size_px - int(image_size_px * padding_pct))
         )
         endpoints.append(random_point)
+        
+    # Define and #(draw bounding box for all points)
+    min_x = min([p[0] for p in endpoints])
+    max_x = max([p[0] for p in endpoints])
+    min_y = min([p[1] for p in endpoints])
+    max_y = max([p[1] for p in endpoints])
+    # draw.rectangle((min_x, min_y, max_x, max_y), outline = (255, 0, 0))
+    
+    # Center the image
+    delta_x = (image_size_px - max_x) - min_x
+    delta_y = (image_size_px - max_y) - min_y
+    for i, point in enumerate(endpoints):
+        endpoints[i] = (point[0] + delta_x // 2, point[1] + delta_y // 2)
+        
+    # # Define and draw bounding box for all new points to show movement
+    # min_x = min([p[0] for p in endpoints])
+    # max_x = max([p[0] for p in endpoints])
+    # min_y = min([p[1] for p in endpoints])
+    # max_y = max([p[1] for p in endpoints])
+    # draw.rectangle((min_x, min_y, max_x, max_y), outline = (0, 255, 0))
+    
     # Connects each point with its following point
     line_thickness = 1
     point_count = len(endpoints)- 1
@@ -56,10 +77,11 @@ def generate_art():
         line_xy = (start, end)
         color_factor = i / point_count
         line_color = color_interpolation(start_color, end_color, color_factor)
-        line_thickness += 1
+        line_thickness += 2
         draw.line(line_xy, fill = line_color, width = line_thickness)
-    
+
     image.save("test-image.png")
+    print("Done!")
 
 if __name__ == "__main__":
     generate_art()
