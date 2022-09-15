@@ -16,17 +16,22 @@ def generate_art():
     # Draw lines over base image
     draw = ImageDraw.Draw(image)
     
+    # Create a list of each random points
+    endpoints = []
     for _ in range(10):
-        random_point_one = (
-            random.randint(0, image_size_px), 
+        random_point = (
+            random.randint(0, image_size_px),
             random.randint(0, image_size_px)
         )
-        random_point_two = (
-            random.randint(0, image_size_px), 
-            random.randint(0, image_size_px)
-        )
-        
-        line_xy = (random_point_one, random_point_two)
+        endpoints.append(random_point)
+    # Create random lines using previous line's endpoint as subsequent start point
+    for i, point in enumerate(endpoints):
+        start = point
+        if i == len(endpoints) - 1:
+            end = endpoints[0]
+        else:
+            end = endpoints[i + 1]
+        line_xy = (start, end)
         line_color = (0, 0, 0)
         draw.line(line_xy, fill = line_color)
     
